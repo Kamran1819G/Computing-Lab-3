@@ -10,8 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 |--------------------|-------------------------------------|
 | Roll No: 11        | Name: Kamran Khan                   |
 | Class: CSE-AIML    | Batch: B1                           |
-| PRN: 2143110133    | Date of Experiment: 09 / 01 / 2024  |
-| Marks (Out of 25): | Date of Submission: \_\_ / 01/ 2024 |
+| PRN: 2143110133    | Date of Experiment: 09 / 02 / 2024  |
+| Marks (Out of 25): | Date of Submission: __ / 02 / 2024 |
 
 #### **Aim:** Data Visualization using R Programming Language.
 
