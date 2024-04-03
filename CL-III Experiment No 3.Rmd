@@ -1,0 +1,118 @@
+![](lab header image.jpg)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### **Subject**: Computing Lab - III | Experiment No - 03 (3rd YEAR CSE-AIML 2023-2024)
+
+|                    |                                  |
+|--------------------|----------------------------------|
+|     Roll No: 11    |         Name: Kamran Khan        |
+|   Class: CSE-AIML  |             Batch: B1            |
+|   PRN: 2143110133  | Date of Experiment:  09 / 01 / 2024 |
+| Marks (Out of 25): |  Date of Submission: __ / 01/ 2024 |
+
+
+#### **Aim:** To study Descriptive statistics/Exploratory Data Analysis in R Programming.
+
+#### **Theory:**
+
+**A. Univariate Analysis **
+
+**1. Reading the inbuilt dataset iris:**
+
+```{r}
+d <- iris
+```
+
+**2.Using `head()`:**
+
+```{r}
+head(d)
+```
+
+**3. Accessing Columns with their names:**
+
+```{r}
+d$Species
+```
+**4. Structure of iris dataset:**
+
+```{r}
+str(d)
+```
+**5. Minimum and Maximum of a column:**
+
+```{r}
+min(d$Petal.Length)
+max(d$Petal.Length)
+```
+**6. Quantile of Column:**
+
+```{r}
+quantile(d$Sepal.Length, 0.25)
+```
+**7. Range of Column:**
+
+```{r}
+range(d$Petal.Width)
+```
+**8. Standard Deviation of a column:**
+
+```{r}
+sd(d$Petal.Length)
+```
+
+**9. Variance of a Column:**
+
+```{r}
+var(d$Petal.Length)
+```
+
+**10. Summary of a dataset:**
+
+```{r}
+summary(d)
+```
+**11. Using `by()` function on a column:**
+
+```{r}
+by(d$Petal.Length, d$Species, summary)
+```
+**12. Using Stat. Desc Function:**
+
+```{r}
+library(pastecs)
+stat.desc(d)
+```
+
+
+**13. IQR of a Column:**
+
+```{r}
+IQR(d$Petal.Length)
+```
+**B. Multivariate Analysis:**
+
+**1. Using Corelation function:**
+
+```{r}
+cor(d$Sepal.Length, d$Sepal.Width)
+```
+
+**2. Using Covariance function:**
+
+```{r}
+cov(d$Sepal.Length, d$Petal.Length)
+```
+#### **Conclusion**:
+From this experiment we have studied descriptive statistics/exploratory Data Analysis in R Programming.
+
+
+<div style="float: right; display: inline-block; padding: 10px; text-align: center; font-weight: bold">
+  
+  Signature of Lab Incharge
+    
+  (Prof. Supriya Khaitan)
+</div>

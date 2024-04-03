@@ -1,0 +1,106 @@
+![](lab%20header%20image.jpg)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### **Subject**: Computing Lab - III \| Experiment No - 04 (3rd YEAR CSE-AIML 2023-2024)
+
+|                    |                                     |
+|--------------------|-------------------------------------|
+| Roll No: 11        | Name: Kamran Khan                   |
+| Class: CSE-AIML    | Batch: B1                           |
+| PRN: 2143110133    | Date of Experiment: 09 / 01 / 2024  |
+| Marks (Out of 25): | Date of Submission: \_\_ / 01/ 2024 |
+
+#### **Aim:** Data Visualization using R Programming Language.
+
+#### **Theory:**
+
+In data visualization, we use graphical representations of data to summarize and communicate information effectively. R programming language offers powerful tools and libraries for creating various types of visualizations.
+
+```{r}
+d <- cars
+head(d)
+```
+
+##### **Plot Function:**
+
+The `plot()` function in R is a versatile tool for creating scatter plots, line plots, histograms, and more. It's a basic function that can be customized with various arguments to tailor the plot according to the data and visualization needs.
+
+```{r}
+plot(x = d$speed, y = d$dist, main = "Speed vs Distance", xlab = "Speed", ylab = "Distance", col = "blue")
+```
+
+##### **Bar Chart:**
+
+Bar charts are useful for comparing the frequency, count, or other summary statistics of different categories. In R, you can create bar charts using the `barplot()` function.
+
+```{r}
+barplot(table(d$speed), main = "Frequency of Speed", xlab = "Speed", ylab = "Frequency", col = "orange")
+```
+
+##### **Horizontal Bar Graph:**
+
+Horizontal bar graphs are similar to bar charts but with the bars displayed horizontally. You can achieve this in R using the barplot() function with the horiz = TRUE argument.
+
+```{r}
+barplot(table(d$speed), main = "Frequency of Speed", xlab = "Frequency", ylab = "Speed", horiz = TRUE, col = "green")
+```
+
+##### **Line Graph:**
+
+Line graphs are effective for showing trends or changes in data over time or other continuous variables. In R, you can create line graphs using the `plot()` function with the type = "l" argument.
+
+```{r}
+plot(x = d$speed, y = d$dist, type = "l", main = "Speed vs Distance", xlab = "Speed", ylab = "Distance", col = "red")
+```
+
+##### **Box Graph:**
+
+Box plots (box-and-whisker plots) are useful for displaying the distribution of a dataset and identifying outliers. In R, you can create box plots using the `boxplot()` function.
+
+```{r}
+boxplot(d$speed, main = "Boxplot of Speed", ylab = "Speed", col = "purple")
+```
+
+##### **Histogram:**
+
+Histograms are used to visualize the distribution of a continuous variable. In R, you can create histograms using the `hist()` function.
+
+```{r}
+hist(d$speed, main = "Histogram of Speed", xlab = "Speed", ylab = "Frequency", col = "brown")
+```
+
+##### **GGPlot2 Library:**
+
+`ggplot2` is a popular package in R for creating elegant and sophisticated visualizations. It provides a flexible and powerful syntax for building various types of plots.
+
+```{r}
+library(ggplot2)
+```
+
+##### **Geom Function:**
+
+In `ggplot2`, the `geom` functions are used to specify the type of geometric object (points, lines, bars, etc.) to be plotted. Each geom function adds a layer to the plot.
+
+```{r}
+ggplot(data = d, aes(x = speed, y = dist)) + geom_point() + labs(title = "Scatter Plot of Speed vs Distance")
+```
+
+#### **Conclusion**: 
+This experiment familiarized us with data visualization techniques in R. By creating diverse plots such as scatter plots, bar charts, and histograms, we gained practical insights into representing and analyzing data effectively.
+
+
+
+
+<div style="float: right; display: inline-block; padding: 10px; text-align: center; font-weight: bold">
+  
+  Signature of Lab Incharge
+    
+  (Prof. Supriya Khaitan)
+</div>
+
+
+
+

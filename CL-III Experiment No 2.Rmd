@@ -1,0 +1,119 @@
+![](lab header image.jpg)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### **Subject**: Computing Lab - III | Experiment No - 02 (3rd YEAR CSE-AIML 2023-2024)
+
+|                    |                                  |
+|--------------------|----------------------------------|
+|     Roll No: 11    |         Name: Kamran Khan        |
+|   Class: CSE-AIML  |             Batch: B1            |
+|   PRN: 2143110133  | Date of Experiment:  __ / 01 / 2024 |
+| Marks (Out of 25): |  Date of Submission: __ / 01/ 2024 |
+
+
+#### **Aim:** R program to Implement Vector, Dataframe, Matrix, List and Array operations.
+
+#### **Theory:**
+
+#### Vector:
+
+R Vectors are the same as the arrays in R language which are used to hold multiple data values of the same type. One major key point is that in R Programming Language the indexing of the vector will start from ‘1’ and not from ‘0’. We can create numeric vectors and character vectors as well.
+
+```{r}
+numeric_vector <- c(1, 2, 3, 4, 5)
+char_vector <- c("apple", "banana", "orange", "grape", "kiwi")
+
+# Basic operations
+result_addition <- numeric_vector + 2
+result_multiplication <- numeric_vector * 3
+
+# Display results
+print(result_addition)
+print(result_multiplication)
+```
+#### Matrix:
+A matrix is a two-dimensional data structure where data are arranged into rows and columns.
+
+```{r}
+# Create a matrix
+my_matrix <- matrix(c(1, 2, 3, 4, 5, 6, 7, 8, 9), nrow = 3, ncol = 3, byrow = TRUE)
+
+# Matrix operations
+matrix_product <- my_matrix %*% my_matrix
+determinant_value <- det(my_matrix)
+
+# Display results
+print(matrix_product)
+print(determinant_value)
+```
+#### Dataframe:
+A data frame is a two-dimensional data structure which can store data in tabular format.
+
+Data frames have rows and columns and each column can be a different vector. And different vectors can be of different data types.
+
+```{r}
+# Create a dataframe
+my_dataframe <- data.frame(Name = c("John", "Alice", "Bob"),
+                           Age = c(25, 30, 28),
+                           Grade = c("A", "B", "C"))
+
+# Add a new row
+new_row <- c("Eva", 22, "A")
+my_dataframe <- rbind(my_dataframe, new_row)
+
+# Subset and filter
+subset_dataframe <- my_dataframe[my_dataframe$Age > 25, ]
+
+# Display results
+print(my_dataframe)
+print(subset_dataframe)
+```
+#### List:
+A List is a collection of similar or different types of data.
+
+In R, we use the `list()` function to create a list.
+
+```{r}
+# Create a list
+my_list <- list(numbers = c(1, 2, 3), characters = c("apple", "banana", "orange"), logicals = c(TRUE, FALSE, TRUE))
+
+# Access and modify elements
+my_list$numbers[2] <- 5
+
+# Display results
+print(my_list)
+print(length(my_list))
+str(my_list)
+```
+
+#### Array:
+An Array is a data structure which can store data of the same type in more than two dimensions.
+
+The only difference between vectors, matrices, and arrays are
+
+- Vectors are uni-dimensional arrays
+- Matrices are two-dimensional arrays
+- Arrays can have more than two dimensions
+
+```{r}
+# Create a 2D array for temperature data
+temperature_data <- array(data = c(23, 28, 24, 29, 26, 30, 21, 25, 22, 27, 29, 31),
+                          dim = c(3, 4),
+                          dimnames = list(c("City_A", "City_B", "City_C"), c("Jan", "Feb", "Mar", "Apr")))
+
+# Calculate average temperature for each city
+average_city_temperature <- apply(temperature_data, 1, mean)
+
+# Calculate overall average temperature
+overall_average_temperature <- mean(temperature_data)
+
+# Display results
+print(temperature_data)
+print(average_city_temperature)
+print(overall_average_temperature)
+```
+
+#### **Conclusion**:
+Through this experiment we have studied about implementation of Vector, Matrix, Dataframe, List and Array in R programming.
