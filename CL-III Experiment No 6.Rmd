@@ -1,0 +1,83 @@
+![](lab header image.jpg)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### **Subject**: Computing Lab - III \| Experiment No - 06 (3rd YEAR CSE-AIML 2023-2024)
+
+|                    |                                     |
+|--------------------|-------------------------------------|
+| Roll No: 11        | Name: Kamran Khan                   |
+| Class: CSE-AIML    | Batch: B1                           |
+| PRN: 2143110133    | Date of Experiment: __ / __ / 2024  |
+| Marks (Out of 25): | Date of Submission: __ / __ / 2024  |
+
+#### **Aim:** To implement different conditional statements in R programming language.
+
+#### **Theory:**
+Conditional statements are fundamental constructs in programming languages, enabling the execution of specific code blocks based on given conditions. In R programming, we encounter various types of conditional statements:
+
+1. **if-else statement:**
+It evaluates a condition and executes a block of code if the condition is true. If the condition is false, it executes another block of code.
+
+```{r}
+x <- 10
+if (x > 5) {
+  print("x is greater than 5")
+} else {
+  print("x is less than or equal to 5")
+}
+```
+
+2. **if-else if-else statement:**
+This statement allows us to check multiple conditions sequentially. It provides flexibility in handling various scenarios based on different conditions.
+
+```{r}
+y <- 7
+if (y < 5) {
+  print("y is less than 5")
+} else if (y == 5) {
+  print("y is equal to 5")
+} else {
+  print("y is greater than 5")
+}
+```
+
+3. **switch statement:**
+The switch statement provides an efficient way to select one of many alternative blocks of code to be executed based on the value of a variable.
+
+```{r}
+z <- "apple"
+switch(z,
+       "apple" = print("It's a fruit"),
+       "car" = print("It's a vehicle"),
+       "cat" = print("It's an animal"),
+       print("Not recognized")
+)
+```
+
+4. **for loop:**
+Loops are used to iterate over a sequence of elements. The for loop in R allows executing a block of code repeatedly for a specified number of times.
+
+```{r}
+for (i in 1:5) {
+  print(paste("Iteration:", i))
+}
+```
+
+#### **Conclusion**: 
+In this experiment, we explored different conditional statements and a for loop in R programming language. These constructs are essential for controlling the flow of execution and iterating over elements in a program.
+
+
+
+<div style="float: right; display: inline-block; padding: 10px; text-align: center; font-weight: bold">
+  
+  Signature of Lab Incharge
+    
+  (Prof. Supriya Khaitan)
+</div>
+
+
+
+
