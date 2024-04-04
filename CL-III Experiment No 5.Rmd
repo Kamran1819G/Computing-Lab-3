@@ -1,0 +1,79 @@
+![](lab header image.jpg)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### **Subject**: Computing Lab - III \| Experiment No - 05 (3rd YEAR CSE-AIML 2023-2024)
+
+|                    |                                     |
+|--------------------|-------------------------------------|
+| Roll No: 11        | Name: Kamran Khan                   |
+| Class: CSE-AIML    | Batch: B1                           |
+| PRN: 2143110133    | Date of Experiment: __ / __ / 2024  |
+| Marks (Out of 25): | Date of Submission: __ / __ / 2024  |
+
+#### **Aim:** To implement functions and its types in R programming.
+
+#### **Theory:**
+
+**Function:**
+Functions in R are blocks of code that perform a specific task. They allow for modularity and reusability of code.
+
+1. **Calling function without using any argument:**
+A function can be defined without any arguments. When called, it executes the predefined code block.
+
+```{r}
+hello <- function() {
+  print("Hello, world!")
+}
+
+# Calling the function
+hello()
+
+```
+
+2. **Calling function using default argument:**
+In R, you can define default values for function arguments. If a value is not provided when the function is called, it uses the default value.
+
+```{r}
+greet <- function(name = "friend") {
+  paste("Hello,", name)
+}
+
+# Calling the function without argument
+greet()
+
+# Calling the function with an argument
+greet("Kamran")
+
+```
+
+3. **Calling function using variable length argument:**
+Functions in R can accept a variable number of arguments using `....` This allows flexibility in function calling.
+
+```{r}
+sum_all <- function(...) {
+  sum(...)
+}
+
+# Calling the function with variable number of arguments
+sum_all(1, 2, 3)
+sum_all(1, 2, 3, 4, 5)
+
+```
+
+#### **Conclusion**: 
+This experiment introduced various types of functions in R programming. We learned how to define functions without arguments, with default arguments, and with variable length arguments. 
+
+
+<div style="float: right; display: inline-block; padding: 10px; text-align: center; font-weight: bold">
+  
+  Signature of Lab Incharge
+    
+  (Prof. Supriya Khaitan)
+</div>
+
+
+
+
