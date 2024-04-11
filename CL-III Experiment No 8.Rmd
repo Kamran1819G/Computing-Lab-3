@@ -1,0 +1,149 @@
+![](lab header image.jpg)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### **Subject**: Computing Lab - III \| Experiment No - 08 (3rd YEAR CSE-AIML 2023-2024)
+
+|                    |                                     |
+|--------------------|-------------------------------------|
+| Roll No: 11        | Name: Kamran Khan                   |
+| Class: CSE-AIML    | Batch: B1                           |
+| PRN: 2143110133    | Date of Experiment: __ / __ / 2024  |
+| Marks (Out of 25): | Date of Submission: __ / __ / 2024  |
+
+#### **Aim:** To perform Normal, Binomial, Poisson Distribution in R language.
+
+#### **Theory:**
+
+##### 1. **Normal Distribution**:
+The normal distribution, also known as the Gaussian distribution, is a continuous probability distribution that is symmetric around the mean. It is characterized by its mean (μ) and standard deviation (σ). The probability density function (PDF) of the normal distribution is given by:
+
+where:
+
+- x is the random variable.
+- μ is the mean.
+- σ is the standard deviation.
+
+Functions in R:
+
+- `dnorm(x, mean, sd)`: Computes the density (PDF) of the normal distribution at the values specified by x, with the specified mean and standard deviation.
+
+```{r}
+x <- seq(-5, 5, length=100)
+mean <- 0
+sd <- 1
+plot(x, dnorm(x, mean, sd), type="l", col="blue", lwd=2, ylab="Density", main="Normal Distribution")
+```
+
+- `pnorm(x, mean, sd)`: Computes the cumulative distribution function (CDF) of the normal distribution for the values specified by x, with the specified mean and standard deviation.
+
+```{r}
+x <- seq(-5, 5, length=100)
+plot(x, pnorm(x, mean, sd), type="l", col="red", lwd=2, ylab="Cumulative Probability", main="Normal Distribution CDF")
+
+```
+
+- `qnorm(p, mean, sd)`: Computes the quantile function (inverse CDF) of the normal distribution for the probabilities specified by p, with the specified mean and standard deviation.
+
+```{r}
+p <- seq(0.01, 0.99, by=0.01)
+plot(p, qnorm(p, mean, sd), type="l", col="green", lwd=2, ylab="Quantile", main="Normal Distribution Quantile")
+```
+
+- `rnorm(n, mean, sd)`: Generates random numbers from the normal distribution with the specified mean and standard deviation.
+
+```{r}
+n <- 1000
+random_numbers <- rnorm(n, mean, sd)
+```
+
+##### 2.**Binomial Distribution**:
+The binomial distribution represents the number of successes in a fixed number of The binomial distribution represents the number of successes in a fixed number of independent Bernoulli trials, where each trial has a constant probability of success (denoted by p). It is characterized by two parameters: the number of trials (n) and the probability of success (p).
+
+Functions in R:
+
+- `dbinom(x, size, prob)`: Computes the density (PMF) of the binomial distribution for the number of successes specified by x, with the specified number of trials and probability of success.
+
+```{r}
+x <- 0:20
+size <- 20
+prob <- 0.5
+plot(x, dbinom(x, size, prob), type="h", col="blue", lwd=2, ylab="Probability", main="Binomial Distribution")
+```
+
+- `pbinom(x, size, prob)`: Computes the cumulative distribution function (CDF) of the binomial distribution for the number of successes specified by x, with the specified number of trials and probability of success.
+
+```{r}
+x <- 0:20
+plot(x, pbinom(x, size, prob), type="h", col="red", lwd=2, ylab="Cumulative Probability", main="Binomial Distribution CDF")
+```
+
+- `qbinom(p, size, prob)`: Computes the quantile function (inverse CDF) of the binomial distribution for the probabilities specified by p, with the specified number of trials and probability of success.
+
+```{r}
+p <- seq(0.01, 0.99, by=0.01)
+plot(p, qbinom(p, size, prob), type="l", col="green", lwd=2, ylab="Quantile", main="Binomial Distribution Quantile")
+```
+
+- `rbinom(n, size, prob)`: Generates random numbers from the binomial distribution with the specified number of trials and probability of success.
+
+```{r}
+n <- 1000
+random_numbers <- rbinom(n, size, prob)
+```
+
+##### 3. **Poisson Distribution**:
+The Poisson distribution models the number of events occurring in a fixed interval of time or space, given that the events occur with a known constant rate (λ). It is characterized by one parameter: the rate of occurrence (λ).
+
+Functions in R:
+
+- `dpois(x, lambda)`: Computes the density (PMF) of the Poisson distribution for the number of events specified by x, with the specified rate of occurrence.
+specified number of trials and probability of success.
+
+```{r}
+x <- 0:20
+lambda <- 5
+plot(x, dpois(x, lambda), type="h", col="blue", lwd=2, ylab="Probability", main="Poisson Distribution")
+```
+
+- `ppois(x, lambda)`: Computes the cumulative distribution function (CDF) of the Poisson distribution for the number of events specified by x, with the specified rate of occurrence.
+specified number of trials and probability of success.
+
+```{r}
+x <- 0:20
+plot(x, ppois(x, lambda), type="h", col="red", lwd=2, ylab="Cumulative Probability", main="Poisson Distribution CDF")
+```
+
+- `qpois(p, lambda)`: Computes the quantile function (inverse CDF) of the Poisson distribution for the probabilities specified by p, with the specified rate of occurrence.
+specified number of trials and probability of success.
+
+```{r}
+p <- seq(0.01, 0.99, by=0.01)
+plot(p, qpois(p, lambda), type="l", col="green", lwd=2, ylab="Quantile", main="Poisson Distribution Quantile")
+```
+
+- `rpois(n, lambda)`: Generates random numbers from the Poisson distribution with the specified rate of occurrence.
+specified number of trials and probability of success.
+
+```{r}
+n <- 1000
+random_numbers <- rpois(n, lambda)
+```
+
+#### **Conclusion**: 
+The experiment successfully illustrated the principles of Normal, Binomial, and Poisson distributions in R, enhancing our understanding of probability concepts and statistical analysis techniques.
+
+
+
+<div style="float: right; display: inline-block; padding: 10px; text-align: center; font-weight: bold">
+  
+  Signature of Lab Incharge
+    
+  (Prof. Supriya Khaitan)
+</div>
+
+
+
+
