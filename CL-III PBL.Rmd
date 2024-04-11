@@ -4,7 +4,7 @@
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#### **Subject**: Computing Lab - III \| Project Based Learning(PBL) (3rd YEAR CSE-AIML 2023-2024)
+#### **Subject**: Computing Lab - III \| Project Based Learning (PBL) (3rd YEAR CSE-AIML 2023-2024)
 
 |                    |                                     |
 |--------------------|-------------------------------------|
@@ -17,6 +17,140 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #### **Theory:**
 
+##### 1. **Required Libraries**
+I have imported the necessary libraries for data manipulation (tidyverse), data visualization (ggplot2), machine learning model training and evaluation (caret), and handling imbalanced datasets (DMwR2).
+
+```{r}
+library(tidyverse)
+library(caret)
+library(smotefamily)
+library(corrplot)
+```
+
+##### 2. **Load the Dataset**
+I have loaded the "diabetes.csv" dataset into the R environment for further analysis.
+
+```{r}
+cd <- read.csv('diabetes.csv')
+```
+
+##### 3. **Exploratory Data Analysis**
+In this section, I perform exploratory data analysis to understand the structure and characteristics of the dataset. We check the first few rows, the data types of the variables, and the summary statistics.
+
+```{r}
+head(cd)
+str(cd)
+summary(cd)
+```
+
+##### 4. **Check for missing values**
+I check if there are any missing values in the dataset, which is an important step before proceeding with further analysis and modeling.
+```{r}
+sum(is.na(cd))
+```
+
+
+##### 5. **Data Visualization**
+I create various histograms to visualize the distribution of different features in the dataset, such as Pregnancies, Glucose, Blood Pressure, Skin Thickness, Insulin, BMI, Diabetes Pedigree Function, and Age. This helps us gain a better understanding of the data and identify any potential patterns or outliers.
+
+```{r}
+# Explore the data visually
+ggplot(cd, aes(x = Pregnancies, fill = factor(Outcome))) +
+  geom_histogram(binwidth = 1) +
+  labs(title = "Histogram of Pregnancies")
+
+ggplot(cd, aes(x = Glucose, fill = factor(Outcome))) +
+  geom_histogram(binwidth = 5) +
+  labs(title = "Histogram of Glucose")
+
+ggplot(cd, aes(x = BloodPressure, fill = factor(Outcome))) +
+  geom_histogram(binwidth = 2) +
+  labs(title = "Histogram of Blood Pressure")
+
+ggplot(cd, aes(x = SkinThickness, fill = factor(Outcome))) +
+  geom_histogram(binwidth = 2) +
+  labs(title = "Histogram of Skin Thickness")
+
+ggplot(cd, aes(x = Insulin, fill = factor(Outcome))) +
+  geom_histogram(binwidth = 10) +
+  labs(title = "Histogram of Insulin")
+
+ggplot(cd, aes(x = BMI, fill = factor(Outcome))) +
+  geom_histogram(binwidth = 1) +
+  labs(title = "Histogram of BMI")
+
+ggplot(cd, aes(x = DiabetesPedigreeFunction, fill = factor(Outcome))) +
+  geom_histogram(binwidth = 0.05) +
+  labs(title = "Histogram of Diabetes Pedigree Function")
+
+ggplot(cd, aes(x = Age, fill = factor(Outcome))) +
+  geom_histogram(binwidth = 2) +
+  labs(title = "Histogram of Age")
+```
+
+
+##### 6. **Correlation matrix**
+The correlation matrix analysis is performed to understand the relationships between the features in the dataset. This information can be used to identify potentially redundant or highly correlated features, which can then inform the feature selection or engineering process.
+
+```{r}
+cor_matrix <- cor(cd[, -9])
+corrplot(cor_matrix, method = "circle", order = "hclust",
+         type = "lower", tl.col = "black", tl.srt = 45)
+```
+
+##### 7. **Feature engineering**
+In this step, I select the relevant features (Glucose, BMI, and Age) that will be used as input to the Logistic Regression model.
+```{r}
+X <- cd[, c("Glucose", "BMI", "Age")]
+y <- cd$Outcome
+```
+
+##### 8. **Handle imbalanced dataset**
+The diabetes dataset is likely to be imbalanced, as the number of people with diabetes and without diabetes may not be equal. We use the SMOTE (Synthetic Minority Over-sampling Technique) method to oversample the minority class (people with diabetes) to address the imbalance.
+
+```{r}
+table(y)
+over_sampler <- SMOTE(X, y)
+X_over <- over_sampler$data[, 1:3]
+y_over <- over_sampler$data[, 4]
+```
+
+##### 9. **Split the data into training and testing sets**
+I split the dataset into training and testing sets, with 70% of the data used for training the model and 30% for evaluating its performance.
+
+```{r}
+set.seed(2)
+train_index <- createDataPartition(y_over, p = 0.7, list = FALSE)
+X_train <- X_over[train_index, ]
+y_train <- y_over[train_index]
+X_test <- X_over[-train_index, ]
+y_test <- y_over[-train_index]
+```
+
+##### 8. **Logistic Regression**
+I train a Logistic Regression model using the training data. Logistic Regression is a suitable algorithm for this binary classification problem, as it can predict the probability of a person having diabetes or not.
+
+```{r}
+logit_model <- train(x = X_train, y = as.factor(y_train), method = "glm", family = "binomial", trControl = trainControl(method = "none"))
+```
+
+##### 9. **Evaluate the model**
+Finally, we evaluate the performance of the Logistic Regression model on the testing data using various metrics such as accuracy, precision, recall, and F1-score. These metrics provide a comprehensive assessment of the model's performance and help us understand its strengths and weaknesses.
+
+```{r}
+y_pred_lr <- predict(logit_model, newdata = X_test)
+confusion_matrix <- confusionMatrix(y_pred_lr, as.factor(y_test))
+
+accuracy <- confusion_matrix$overall['Accuracy']
+precision <- confusion_matrix$byClass['Pos Pred Value']
+recall <- confusion_matrix$byClass['Sensitivity']
+f1_score <- 2 * precision * recall / (precision + recall)
+
+print(paste("Accuracy:", accuracy))
+print(paste("Precision:", precision))
+print(paste("Recall:", recall))
+print(paste("F1-score:", f1_score))
+```
 
 #### **Conclusion**: 
 
