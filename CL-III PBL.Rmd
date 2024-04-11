@@ -1,0 +1,34 @@
+![](lab header image.jpg)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### **Subject**: Computing Lab - III \| Project Based Learning(PBL) (3rd YEAR CSE-AIML 2023-2024)
+
+|                    |                                     |
+|--------------------|-------------------------------------|
+| Roll No: 11        | Name: Kamran Khan                   |
+| Class: CSE-AIML    | Batch: B1                           |
+| PRN: 2143110133    | Date of Experiment: __ / __ / 2024  |
+| Marks (Out of 25): | Date of Submission: __ / __ / 2024  |
+
+#### **Aim:**
+
+#### **Theory:**
+
+
+#### **Conclusion**: 
+
+
+
+<div style="float: right; display: inline-block; padding: 10px; text-align: center; font-weight: bold">
+  
+  Signature of Lab Incharge
+    
+  (Prof. Supriya Khaitan)
+</div>
+
+
+
+
