@@ -13,7 +13,8 @@ knitr::opts_chunk$set(echo = TRUE)
 | PRN: 2143110133    | Date of Experiment: __ / __ / 2024  |
 | Marks (Out of 25): | Date of Submission: __ / __ / 2024  |
 
-#### **Aim:**
+#### **Aim:** 
+The aim of this project is to develop a predictive model for identifying diabetes in individuals using machine learning techniques. Specifically, we aim to train a logistic regression model on the provided diabetes dataset to accurately classify an individual as diabetic or non-diabetic based on certain features such as Glucose level, BMI, and Age.
 
 #### **Theory:**
 
@@ -153,6 +154,7 @@ print(paste("F1-score:", f1_score))
 ```
 
 #### **Conclusion**: 
+In this project, I successfully conducted exploratory data analysis (EDA) on the diabetes dataset to understand its structure and characteristics. Visualizations were created to observe the distribution of various features and correlation analysis was performed to identify relationships between them. After handling missing values and addressing the imbalance in the dataset using the SMOTE technique, I proceeded to train a logistic regression model. Overall, this project demonstrates the application of machine learning techniques in healthcare, particularly in the early detection and management of chronic diseases like diabetes.
 
 
 
